@@ -113,7 +113,16 @@ String.prototype.startsWith2 = function (searchString, position = 0) {
 };
 
 String.prototype.toLowerCase2 = function () {
-    return this.toLowerCase();
+    let result = '';
+    for (let i = 0; i < this.length; i++) {
+        let charCode = this.charCodeAt(i);
+        if (charCode >= 65 && charCode <= 90) {
+            result += String.fromCharCode(charCode + 32);
+        } else {
+            result += String.fromCharCode(charCode);
+        }
+    }
+    return result;
 };
 
 String.prototype.toString2 = function () {
@@ -121,7 +130,16 @@ String.prototype.toString2 = function () {
 };
 
 String.prototype.toUpperCase2 = function () {
-    return this.toUpperCase();
+    let result = '';
+    for (let i = 0; i < this.length; i++) {
+        let charCode = this.charCodeAt(i);
+        if (charCode >= 97 && charCode <= 122) {
+            result += String.fromCharCode(charCode - 32);
+        } else {
+            result += String.fromCharCode(charCode);
+        }
+    }
+    return result;
 };
 
 String.prototype.trim2 = function () {
